@@ -1,0 +1,20 @@
+# Godot
+.import/
+.godot/
+export_presets.cfg
+# Editor caches
+*.tmp
+*.import
+*.translation
+# OS/editor junk
+.DS_Store
+Thumbs.db
+*.log
+# Python
+.venv/
+__pycache__/
+*.pyc
+# VSCode (biar clean, tapi keep settings kalau ada)
+.vscode/
+# Images previews from OS
+ehthumbs.db
