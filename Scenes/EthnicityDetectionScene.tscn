@@ -39,7 +39,7 @@ grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="MainContainer"]
 layout_mode = 2
-text = "Deteksi Etnis Indonesia"
+text = "Your Accecoris"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -82,6 +82,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="CameraStatusLabel" type="Label" parent="MainContainer/CameraContainer/WebcamContainer/WebcamFeed"]
+visible = false
 modulate = Color(1, 1, 1, 0.9)
 layout_mode = 1
 anchors_preset = 15
@@ -116,6 +117,48 @@ grow_horizontal = 2
 grow_vertical = 2
 border_color = Color(0, 1, 0, 0)
 border_width = 3.0
+
+[node name="AccessoryLayer" type="Node2D" parent="MainContainer"]
+position = Vector2(441, 16)
+
+[node name="TieSprite" type="Sprite2D" parent="MainContainer/AccessoryLayer"]
+position = Vector2(216, 789)
+texture = ExtResource("3_o41lu")
+
+[node name="ChokerSprite" type="Sprite2D" parent="MainContainer/AccessoryLayer"]
+position = Vector2(70.999985, 332.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_q7dil")
+
+[node name="NecklaceSprite" type="Sprite2D" parent="MainContainer/AccessoryLayer"]
+position = Vector2(-211.5, 631)
+texture = ExtResource("5_2y3ji")
+
+[node name="HUD" type="Control" parent="MainContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="MainContainer/HUD"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+
+[node name="CheckBox" type="CheckBox" parent="MainContainer/HUD"]
+visible = false
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="MainContainer/HUD"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="UDPClient" type="Node" parent="MainContainer" groups=["udp_client"]]
+script = ExtResource("3_0m2xk")
+
+[node name="UDPVideoClient" type="Node" parent="MainContainer"]
+script = ExtResource("5_y16ji")
 
 [node name="StatusContainer" type="VBoxContainer" parent="MainContainer"]
 layout_mode = 2
@@ -204,43 +247,6 @@ stretch_mode = 5
 layout_mode = 2
 text = "Memuat pengalaman budaya..."
 horizontal_alignment = 1
-
-[node name="AccessoryLayer" type="Node2D" parent="MainContainer"]
-position = Vector2(-50, -50)
-
-[node name="TieSprite" type="Sprite2D" parent="MainContainer/AccessoryLayer"]
-position = Vector2(196, 589)
-texture = ExtResource("3_o41lu")
-
-[node name="ChokerSprite" type="Sprite2D" parent="MainContainer/AccessoryLayer"]
-texture = ExtResource("4_q7dil")
-
-[node name="NecklaceSprite" type="Sprite2D" parent="MainContainer/AccessoryLayer"]
-texture = ExtResource("5_2y3ji")
-
-[node name="HUD" type="Control" parent="MainContainer"]
-layout_mode = 2
-
-[node name="OptionButton" type="OptionButton" parent="MainContainer/HUD"]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
-
-[node name="CheckBox" type="CheckBox" parent="MainContainer/HUD"]
-layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
-
-[node name="Label" type="Label" parent="MainContainer/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="UDPClient" type="Node" parent="." groups=["udp_client"]]
-script = ExtResource("3_0m2xk")
-
-[node name="UDPVideoClient" type="Node" parent="."]
-script = ExtResource("5_y16ji")
 
 [connection signal="pressed" from="MainContainer/ButtonContainer/StartDetectionButton" to="." method="_on_start_detection_pressed"]
 [connection signal="pressed" from="MainContainer/ButtonContainer/BackButton" to="." method="_on_back_pressed"]
